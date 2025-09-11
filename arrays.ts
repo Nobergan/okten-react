@@ -1,4 +1,4 @@
-import type { ICourse } from './src/components/homework-1/models/ICourse';
+import type { ICourse } from './src/models/ICourse';
 
 export const coursesTitleArray = [
   'JavaScript Complex',
