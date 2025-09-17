@@ -10,8 +10,8 @@ export const Products = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const products = await getDummyProducts();
-        setProduct(products);
+        const res = await getDummyProducts();
+        setProduct(res.products);
       } finally {
         setLoading(false);
       }
