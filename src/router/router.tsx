@@ -13,29 +13,50 @@ export const routes = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: 'users/jsonplaceholder',
-        element: <JsonPhUsersPage />
+        path: 'users',
+        children: [
+          { path: 'jsonplaceholder', element: <JsonPhUsersPage /> },
+          { path: 'dummyjson', element: <DummyUsersPage /> }
+        ]
       },
       {
-        path: 'users/dummyjson',
-        element: <DummyUsersPage />
+        path: 'posts',
+        children: [
+          { path: 'jsonplaceholder', element: <JsonPhPostsPage /> },
+          { path: 'dummyjson', element: <DummyPostsPage /> }
+        ]
       },
       {
-        path: 'posts/jsonplaceholder',
-        element: <JsonPhPostsPage />
-      },
-      {
-        path: 'posts/dummyjson',
-        element: <DummyPostsPage />
-      },
-      {
-        path: 'comments/jsonplaceholder',
-        element: <JsonPhCommentsPage />
-      },
-      {
-        path: 'comments/dummyjson',
-        element: <DummyCommentsPage />
+        path: 'comments',
+        children: [
+          { path: 'jsonplaceholder', element: <JsonPhCommentsPage /> },
+          { path: 'dummyjson', element: <DummyCommentsPage /> }
+        ]
       }
+      // {
+      //   path: 'users/jsonplaceholder',
+      //   element: <JsonPhUsersPage />
+      // },
+      // {
+      //   path: 'users/dummyjson',
+      //   element: <DummyUsersPage />
+      // },
+      // {
+      //   path: 'posts/jsonplaceholder',
+      //   element: <JsonPhPostsPage />
+      // },
+      // {
+      //   path: 'posts/dummyjson',
+      //   element: <DummyPostsPage />
+      // },
+      // {
+      //   path: 'comments/jsonplaceholder',
+      //   element: <JsonPhCommentsPage />
+      // },
+      // {
+      //   path: 'comments/dummyjson',
+      //   element: <DummyCommentsPage />
+      // }
     ]
   }
 ]);
