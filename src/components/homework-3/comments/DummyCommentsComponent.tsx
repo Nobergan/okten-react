@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
 import type IDummyPost from '../../../models/IDummyPost.ts';
-import { getDummyComments } from '../../../service/api.service.ts';
+import { getComments } from '../../../service/api.service.ts';
 import { DummyComment } from './DummyCommentComponent.tsx';
 import { EntityList } from '../../../utils/homework-3/EntityList.tsx';
+import { ApiSource } from '../../../models/constants/ApiSource.ts';
 
 export const DummyComments = () => {
   return (
     <EntityList<IDummyPost>
       title='This is Dummy Comments'
-      fetcher={async () => (await getDummyComments()).comments}
+      fetcher={async () => await getComments(ApiSource.Dummy)}
       renderItem={(comment) => <DummyComment comment={comment} />}
       keyExtractor={(comment) => comment.id}
     />

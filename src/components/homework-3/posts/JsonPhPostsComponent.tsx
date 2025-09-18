@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
-import { getJsonPhPosts } from '../../../service/api.service.ts';
+import { getPosts } from '../../../service/api.service.ts';
 import type IJsonPhPost from '../../../models/IJsonPhPost.ts';
 import { JsonPhPost } from './JsonPhPostComponent.tsx';
 import { EntityList } from '../../../utils/homework-3/EntityList.tsx';
+import { ApiSource } from '../../../models/constants/ApiSource.ts';
 
 export const JsonPhPosts = () => {
   return (
     <EntityList<IJsonPhPost>
       title='This is JsonPlaceholder Posts'
-      fetcher={async () => await getJsonPhPosts()}
+      fetcher={async () => await getPosts(ApiSource.JsonPh)}
       renderItem={(post) => <JsonPhPost post={post} />}
       keyExtractor={(post) => post.id}
     />

@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
-import { getJsonPhUsers } from '../../../service/api.service.ts';
+import { getUsers } from '../../../service/api.service.ts';
 import { JsonPhUser } from './JsonPhUserComponent.tsx';
 import type IJsonPhUser from '../../../models/IJsonPhUser.ts';
 import { EntityList } from '../../../utils/homework-3/EntityList.tsx';
+import { ApiSource } from '../../../models/constants/ApiSource.ts';
 
 export const JsonPhUsers = () => {
   return (
     <EntityList<IJsonPhUser>
       title='This is JsonPlaceholder Users'
-      fetcher={async () => await getJsonPhUsers()}
+      fetcher={async () => await getUsers(ApiSource.JsonPh)}
       renderItem={(user) => <JsonPhUser user={user} />}
       keyExtractor={(user) => user.id}
     />

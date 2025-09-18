@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
-import { getDummyPosts } from '../../../service/api.service.ts';
+import { getPosts } from '../../../service/api.service.ts';
 import { DummyPost } from './DummyPostComponent.tsx';
 import type IDummyPost from '../../../models/IDummyPost.ts';
 import { EntityList } from '../../../utils/homework-3/EntityList.tsx';
+import { ApiSource } from '../../../models/constants/ApiSource.ts';
 
 export const DummyPosts = () => {
   return (
     <EntityList<IDummyPost>
       title='This is Dummy Posts'
-      fetcher={async () => (await getDummyPosts()).posts}
+      fetcher={async () => await getPosts(ApiSource.Dummy)}
       renderItem={(post) => <DummyPost post={post} />}
       keyExtractor={(post) => post.id}
     />

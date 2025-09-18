@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
-import { getJsonPhComments } from '../../../service/api.service.ts';
+import { getComments } from '../../../service/api.service.ts';
 import { JsonPhComment } from './JsonPhCommentComponent.tsx';
 import { EntityList } from '../../../utils/homework-3/EntityList.tsx';
 import type IJsonPhComment from '../../../models/IJsonPhComment.ts';
+import { ApiSource } from '../../../models/constants/ApiSource.ts';
 
 export const JsonPhComments = () => {
   return (
     <EntityList<IJsonPhComment>
       title='This is JsonPlaceholder Comments'
-      fetcher={async () => await getJsonPhComments()}
+      fetcher={async () => await getComments(ApiSource.JsonPh)}
       renderItem={(comment) => <JsonPhComment comment={comment} />}
       keyExtractor={(comment) => comment.id}
     />
