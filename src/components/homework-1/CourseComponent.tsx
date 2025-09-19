@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ICourse } from '../../models/ICourse.ts';
+import type { ICourse } from './models/ICourse.ts';
 
 type CourseComponentPropType = {
   course: ICourse;
