@@ -1,11 +1,26 @@
 import './App.css';
-import CoursesComponent from './components/homework-1/CoursesComponent.tsx';
+import { useState } from 'react';
+import { MyContext } from './context/MyContext';
+import { LeftBranch } from './components/LeftBranch.tsx';
+import { RightBranch } from './components/RightBranch.tsx';
 
 function App() {
+  const [counter, setCounter] = useState<number>(0);
+
   return (
-    <div className='min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900'>
-      <CoursesComponent />
-    </div>
+    <>
+      <MyContext.Provider
+        value={{
+          counterValue: counter,
+          increment: (obj) => {
+            setCounter(++obj);
+          }
+        }}
+      >
+        <LeftBranch />
+        <RightBranch />
+      </MyContext.Provider>
+    </>
   );
 }
 
